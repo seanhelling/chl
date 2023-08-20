@@ -1,6 +1,15 @@
 <?php
 
 require_once __DIR__.'/../bootstrap.php';
+
+if (!file_exists(__DIR__.'/config.php')) {
+    echo nl2br(<<<HTML
+    File config.php does not exist; initial setup has not been completed.
+    To resolve this:
+    1. Copy the file config.sample.php to config.php
+    2. Fill in the variables as appropriate.
+    HTML);
+}
 require_once __DIR__.'/config.php';
 
 if (!file_exists(constant('DATABASE_PATH'))) {
